@@ -39,6 +39,12 @@ export default function useTask() {
         )
     }
 
+    function deleteTaskNotCreated(id: string) {
+        setTasks(
+            tasks.filter((task) => task.id !== id)
+        )
+    }
+
     async function deleteTask(id: string) {
         setIsDeletingTask(true)
         await delay(1000)
@@ -53,6 +59,7 @@ export default function useTask() {
         updateTask,
         updateTaskStatus,
         deleteTask,
+        deleteTaskNotCreated,
         isUpdatingTask,
         isDeletingTask
     }

@@ -22,7 +22,13 @@ export default function TaskItem({ task, loading = false }: TaskItemProps) {
     const [isEditing, setIsEditing] = useState(task?.state === TaskState.Creating)
 
     const [taskTitle, setTaskTitle] = useState(task.title || "")
-    const { updateTask, updateTaskStatus, deleteTask, isDeletingTask, isUpdatingTask } = useTask()
+    const { 
+        updateTask, 
+        updateTaskStatus, 
+        deleteTask,
+        deleteTaskNotCreated, 
+        isDeletingTask, 
+        isUpdatingTask } = useTask()
 
     function handleEditTask() {
         setIsEditing(true)
@@ -30,7 +36,7 @@ export default function TaskItem({ task, loading = false }: TaskItemProps) {
 
     function handleExitEditTask() {
         if (task.state === TaskState.Creating) {
-            deleteTask(task.id)
+            deleteTaskNotCreated(task.id)
         }
         setIsEditing(false)
     }
