@@ -47,6 +47,7 @@ export default function PageComponents() {
                     <ButtonIcon icon={XIcon} variant={"secondary"} />
                     <ButtonIcon icon={XIcon} variant={"tertiary"} />
                     <ButtonIcon icon={XIcon} loading variant={"none"} />
+                    <ButtonIcon icon={XIcon} loading handling />
                 </div>
 
                 <div>
